@@ -42,6 +42,7 @@ import { TracingInterceptor } from './common/interceptors/tracing.interceptor';
 import { QueryPerformanceInterceptor } from './common/interceptors/query-performance.interceptor';
 import { GdprModule } from './gdpr/gdpr.module';
 import { ProviderPatientModule } from './provider-patient/provider-patient.module';
+import { ConsistencyCheckerModule } from './consistency-checker/consistency-checker.module';
 import { TenantInterceptor } from './tenant/interceptors/tenant.interceptor';
 import { JobsModule } from './jobs/jobs.module';
 import { DataRetentionModule } from './data-retention/data-retention.module';
@@ -137,8 +138,12 @@ import { WebhooksModule } from './webhooks/webhooks.module';
     ProjectionsModule,
     CqrsModule,
     ProviderPatientModule,
+ feat/data-consistency-checker
+    ConsistencyCheckerModule,
+
     WebhooksModule,
     EventEmitterModule.forRoot(),
+ main
   ],
   controllers: [AppController],
   providers: [
