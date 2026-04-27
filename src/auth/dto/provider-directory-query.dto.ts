@@ -1,7 +1,7 @@
 import { Type } from 'class-transformer';
 import { IsIn, IsInt, IsOptional, IsString, Max, MaxLength, Min } from 'class-validator';
 
-export class ProviderDirectoryQueryDto {
+export class ProviderDirectoryQueryDto extends PaginationDto {
   @IsOptional()
   @IsString()
   @MaxLength(200)
@@ -13,19 +13,19 @@ export class ProviderDirectoryQueryDto {
   specialty?: string;
 
   @IsOptional()
+  @IsString()
+  specialization?: string;
+
+  @IsOptional()
+  @IsString()
+  country?: string;
+
+  @IsOptional()
+  @Type(() => Boolean)
+  @IsBoolean()
+  isAcceptingPatients?: boolean;
+
+  @IsOptional()
   @IsIn(['doctor', 'lab', 'insurer'])
   role?: 'doctor' | 'lab' | 'insurer';
-
-  @IsOptional()
-  @Type(() => Number)
-  @IsInt()
-  @Min(1)
-  page: number = 1;
-
-  @IsOptional()
-  @Type(() => Number)
-  @IsInt()
-  @Min(1)
-  @Max(100)
-  limit: number = 20;
 }
